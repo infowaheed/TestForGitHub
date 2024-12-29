@@ -19,6 +19,7 @@ namespace TestForGitHub.Pages
             _logger = logger;
         }
 
+        // Test comment on Error Index
         public void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
