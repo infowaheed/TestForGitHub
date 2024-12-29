@@ -12,6 +12,7 @@ namespace TestForGitHub.Pages
             _logger = logger;
         }
 
+        // Test update Privacy page
         public void OnGet()
         {
         }
