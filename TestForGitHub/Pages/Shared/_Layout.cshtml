@@ -10,25 +10,61 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">TestForGitHub</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-page="/Index">MyApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <!-- Top-level menu item -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" asp-page="/Index">Home</a>
                         </li>
+
+                        <!-- Dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-page="/Services/WebDevelopment">Web Development</a></li>
+                                <li><a class="dropdown-item" asp-page="/Services/MobileApps">Mobile Apps</a></li>
+
+                                <!-- Nested dropdown menu -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">More Services</a>
+                                    <ul class="dropdown-menu">
+                                        
+                                        @if (ViewData["ShowContactNavItem"] != null && (bool)ViewData["ShowContactNavItem"])
+                                        {
+                                            <li><a class="dropdown-item" asp-page="/Services/SEO">SEO</a></li>
+                                        }
+                                        
+                                        <li><a class="dropdown-item" asp-page="/Services/ContentWriting">Content Writing</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Another top-level menu item -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link" asp-page="/About">About</a>
                         </li>
+                        @if (ViewData["ShowContactNavItem"] != null && (bool)ViewData["ShowContactNavItem"])
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/TestHidePage">TestHide</a>
+                        </li>
+                        }
+
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -47,5 +83,27 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdowns = document.querySelectorAll('.dropdown-submenu');
+            dropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('mouseover', function () {
+                    var submenu = this.querySelector('.dropdown-menu');
+                    if (submenu) {
+                        submenu.classList.add('show');
+                    }
+                });
+                dropdown.addEventListener('mouseout', function () {
+                    var submenu = this.querySelector('.dropdown-menu');
+                    if (submenu) {
+                        submenu.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+
+
 </body>
 </html>
