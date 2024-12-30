@@ -16,6 +16,7 @@ namespace TestForGitHub.Pages
         {
 
             // Test comments here
+            _logger.LogInformation("GET request received at {Time}", DateTime.Now);
 
         }
     }

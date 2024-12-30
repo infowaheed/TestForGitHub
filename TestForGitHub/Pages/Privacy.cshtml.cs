@@ -15,6 +15,9 @@ namespace TestForGitHub.Pages
         // Test update Privacy page
         public void OnGet()
         {
+            
+            _logger.LogInformation("GET request received on Privacy Page at {Time}", DateTime.Now);
+
         }
     }
 
