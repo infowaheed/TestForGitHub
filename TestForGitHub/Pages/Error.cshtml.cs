@@ -9,7 +9,10 @@ namespace TestForGitHub.Pages
     public class ErrorModel : PageModel
     {
         // Once more commite
+        
         public string? RequestId { get; set; }
+
+        public string? RequestId4 { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
