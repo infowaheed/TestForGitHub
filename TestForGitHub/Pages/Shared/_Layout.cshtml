@@ -39,7 +39,7 @@
                                     <a class="dropdown-item dropdown-toggle" href="#">More Services</a>
                                     <ul class="dropdown-menu">
                                         
-                                        @if (ViewData["ShowContactNavItem"] != null && (bool)ViewData["ShowContactNavItem"])
+                                        @if (TempData["ShowContactNavItem"] != null && (bool)TempData["ShowContactNavItem"])
                                         {
                                             <li><a class="dropdown-item" asp-page="/Services/SEO">SEO</a></li>
                                         }
@@ -54,7 +54,7 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-page="/About">About</a>
                         </li>
-                        @if (ViewData["ShowContactNavItem"] != null && (bool)ViewData["ShowContactNavItem"])
+                        @if (TempData["ShowContactNavItem"] != null && (bool)TempData["ShowContactNavItem"])
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-page="/TestHidePage">TestHide</a>
